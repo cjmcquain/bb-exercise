@@ -2,8 +2,8 @@ const fs = require('fs');
 
 const combineFiles = async (file1, file2) => {
     try {
-        const file1data = (await fs.promises.readFile(file1, 'utf-8')).split(" ");
-        const file2data = (await fs.promises.readFile(file2, 'utf-8')).split(" ");
+        const file1data = (await fs.promises.readFile(file1, 'utf-8')).replace(/\r\n/g, " ").split(" ");
+        const file2data = (await fs.promises.readFile(file2, 'utf-8')).replace(/\r\n/g, " ").split(" ");
         const combinedData = [];
 
         for (let i = 0; i < file1data.length || i < file2data.length; i++) {
